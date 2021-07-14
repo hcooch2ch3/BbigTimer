@@ -13,6 +13,7 @@
 		366155EC269C3E800067F5E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366155EA269C3E800067F5E4 /* Main.storyboard */; };
 		366155EE269C3E810067F5E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 366155ED269C3E810067F5E4 /* Assets.xcassets */; };
 		366155F1269C3E810067F5E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366155EF269C3E810067F5E4 /* LaunchScreen.storyboard */; };
+		366155FD269C606B0067F5E4 /* UInt+timeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366155FC269C606B0067F5E4 /* UInt+timeString.swift */; };
 		366155FF269DEED80067F5E4 /* BigTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366155FE269DEED80067F5E4 /* BigTimer.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		366155ED269C3E810067F5E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		366155F0269C3E810067F5E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		366155F2269C3E810067F5E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		366155FC269C606B0067F5E4 /* UInt+timeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+timeString.swift"; sourceTree = "<group>"; };
 		366155FE269DEED80067F5E4 /* BigTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 				366155ED269C3E810067F5E4 /* Assets.xcassets */,
 				366155EF269C3E810067F5E4 /* LaunchScreen.storyboard */,
 				366155F2269C3E810067F5E4 /* Info.plist */,
+				366155FC269C606B0067F5E4 /* UInt+timeString.swift */,
 				366155FE269DEED80067F5E4 /* BigTimer.swift */,
 			);
 			path = BigTimer;
@@ -143,6 +146,7 @@
 				366155E9269C3E800067F5E4 /* ViewController.swift in Sources */,
 				366155FF269DEED80067F5E4 /* BigTimer.swift in Sources */,
 				366155E5269C3E800067F5E4 /* AppDelegate.swift in Sources */,
+				366155FD269C606B0067F5E4 /* UInt+timeString.swift in Sources */,
 				366155E7269C3E800067F5E4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
