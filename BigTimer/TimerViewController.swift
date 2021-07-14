@@ -15,7 +15,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
-    private let timer = BigTimer()
+    private let timer = HMSTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,7 @@ class TimerViewController: UIViewController {
     }
     
     @objc private func changeState(_ notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String: BigTimer.TimerState],
+        guard let userInfo = notification.userInfo as? [String: HMSTimer.TimerState],
               let timerState = userInfo["state"] else {
             return
         }

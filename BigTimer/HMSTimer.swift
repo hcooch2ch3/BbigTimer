@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BigTimer {
+class HMSTimer {
     private var hour: UInt = 0 {
         didSet {
             DispatchQueue.main.async {
@@ -74,11 +74,11 @@ class BigTimer {
     }
 }
 
-extension BigTimer {
+extension HMSTimer {
     private class TimerOperation: Operation {
-        private unowned var timer: BigTimer
+        private unowned var timer: HMSTimer
         
-        init(timer: BigTimer) {
+        init(timer: HMSTimer) {
             self.timer = timer
             super.init()
         }
