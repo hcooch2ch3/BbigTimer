@@ -10,23 +10,17 @@ import Foundation
 class HMSTimer {
     private var hour: UInt = 0 {
         didSet {
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["hour": self.hour])
-            }
+            NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["hour": self.hour])
         }
     }
     private var minute: UInt = 0 {
         didSet {
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["minute": self.minute])
-            }
+            NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["minute": self.minute])
         }
     }
     private var second: UInt = 0 {
         didSet {
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["second": self.second])
-            }
+            NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["second": self.second])
         }
     }
     private(set) var state: TimerState = .BeforeAddingTime {
@@ -36,8 +30,11 @@ class HMSTimer {
             }
         }
     }
-    
     private var timer: Timer?
+    
+    deinit {
+        timer?.invalidate()
+    }
     
     @objc private func decreaseTime() {
         if second > 0 {
