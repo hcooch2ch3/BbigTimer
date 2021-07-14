@@ -11,4 +11,5 @@ extension NSNotification.Name {
     static let addTime = NSNotification.Name(rawValue: "addTime")
     static let changeTime = NSNotification.Name(rawValue: "changeTime")
     static let changeState = NSNotification.Name(rawValue: "changeState")
+    static let updateClock = NSNotification.Name(rawValue: "updateClock")
 }
