@@ -11,17 +11,28 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var clockLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
     private let timer = HMSTimer()
+    private let clock = Clock()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(addTime), name: NSNotification.Name.addTime, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeTime), name: NSNotification.Name.changeTime, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeState), name: NSNotification.Name.changeState, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateClock), name: NSNotification.Name.updateClock, object: nil)
+    }
+    
+    @objc private func updateClock(_ notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: String],
+              let clock = userInfo["clock"] else {
+            return
+        }
+        self.clockLabel.text = clock
     }
 
     @IBAction func touchUpPlusButton(_ sender: Any) {
