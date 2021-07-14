@@ -37,8 +37,24 @@ class HMSTimer {
         }
     }
     
-    private lazy var timerOperation: TimerOperation? = nil
-    private let operationQueue = OperationQueue()
+    private var timer: Timer?
+    
+    @objc private func decreaseTime() {
+        if second > 0 {
+            second -= 1
+        } else {
+            if minute > 0 {
+                minute -= 1
+                second = 59
+            } else {
+                if hour > 0 {
+                    hour -= 1
+                    minute = 59
+                    second = 59
+                }
+            }
+        }
+    }
     
     func addTime(hour: UInt, minute: UInt, second: UInt) {
         self.hour = hour
@@ -48,25 +64,23 @@ class HMSTimer {
     }
     
     func play() {
-        let timerOperation = TimerOperation(timer: self)
-        operationQueue.addOperation(timerOperation)
-        self.timerOperation = timerOperation
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(decreaseTime), userInfo: nil, repeats: true)
         state = .play
     }
     
     func pause() {
-        guard let timerOperation = timerOperation else {
+        guard let timer = self.timer else {
             return
         }
-        timerOperation.cancel()
+        timer.invalidate()
         state = .pause
     }
     
     func stop() {
-        guard let timerOperation = timerOperation else {
+        guard let timer = self.timer else {
             return
         }
-        timerOperation.cancel()
+        timer.invalidate()
         hour = 0
         minute = 0
         second = 0
@@ -75,39 +89,6 @@ class HMSTimer {
 }
 
 extension HMSTimer {
-    private class TimerOperation: Operation {
-        private unowned var timer: HMSTimer
-        
-        init(timer: HMSTimer) {
-            self.timer = timer
-            super.init()
-        }
-        
-        override func main() {
-            while timer.hour >= 0 {
-                while timer.minute >= 0 {
-                    while timer.second > 0 {
-                        sleep(1)
-                        if self.isCancelled || self.isFinished {
-                            return
-                        }
-                        timer.second -= 1
-                    }
-                    if timer.minute == 0 {
-                        break
-                    }
-                    sleep(1)
-                    timer.minute -= 1
-                    timer.second = 59
-                }
-                sleep(1)
-                timer.hour -= 1
-                timer.minute = 59
-                timer.second = 59
-            }
-        }
-    }
-
     enum TimerState {
         case BeforeAddingTime
         case AfterAddingTime
