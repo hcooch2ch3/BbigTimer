@@ -18,6 +18,7 @@
 		366155FD269C606B0067F5E4 /* UInt+timeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366155FC269C606B0067F5E4 /* UInt+timeString.swift */; };
 		366155FF269DEED80067F5E4 /* HMSTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366155FE269DEED80067F5E4 /* HMSTimer.swift */; };
 		36615603269EE58A0067F5E4 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36615602269EE58A0067F5E4 /* Clock.swift */; };
+		3661560526A43CE00067F5E4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661560426A43CE00067F5E4 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		366155FC269C606B0067F5E4 /* UInt+timeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+timeString.swift"; sourceTree = "<group>"; };
 		366155FE269DEED80067F5E4 /* HMSTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMSTimer.swift; sourceTree = "<group>"; };
 		36615602269EE58A0067F5E4 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		3661560426A43CE00067F5E4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				366155FC269C606B0067F5E4 /* UInt+timeString.swift */,
 				366155FE269DEED80067F5E4 /* HMSTimer.swift */,
 				36615602269EE58A0067F5E4 /* Clock.swift */,
+				3661560426A43CE00067F5E4 /* SettingsViewController.swift */,
 			);
 			path = BigTimer;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				36615603269EE58A0067F5E4 /* Clock.swift in Sources */,
 				366155FF269DEED80067F5E4 /* HMSTimer.swift in Sources */,
 				366155E5269C3E800067F5E4 /* AppDelegate.swift in Sources */,
+				3661560526A43CE00067F5E4 /* SettingsViewController.swift in Sources */,
 				366155FB269C5C710067F5E4 /* NSNotification.Name+CustomNotification.swift in Sources */,
 				366155FD269C606B0067F5E4 /* UInt+timeString.swift in Sources */,
 				366155E7269C3E800067F5E4 /* SceneDelegate.swift in Sources */,
