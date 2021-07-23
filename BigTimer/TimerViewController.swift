@@ -23,7 +23,7 @@ class TimerViewController: UIViewController {
     
     var bannerView: GADBannerView!
     private let timer = HMSTimer()
-    private let clock = Clock()
+    private let clock = Clock.shared
     private var alarmSoundPlayer: AVAudioPlayer?
     var isAwakeMode: Bool = {
         UserDefaults.standard.register(defaults: ["isAwakeMode": false])
@@ -38,6 +38,9 @@ class TimerViewController: UIViewController {
         }
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,12 +105,6 @@ class TimerViewController: UIViewController {
         self.clockLabel.text = clock
     }
 
-    @IBAction func touchUpPlusButton(_ sender: Any) {
-        let timePicker = TimePickerViewController()
-        let picker = UINavigationController(rootViewController: timePicker)
-        present(picker, animated: true, completion: nil)
-    }
-    
     @objc private func addTime(_ notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: UInt] else {
             return
@@ -167,6 +164,14 @@ class TimerViewController: UIViewController {
         showAlert(message: "Time Over") {
             self.alarmSoundPlayer?.stop()
         }
+    }
+    
+    @IBAction func touchUpAddButton(_ sender: Any) {
+        let timePicker = UINavigationController(rootViewController: TimePickerViewController())
+        timePicker.preferredContentSize = CGSize(width: 300, height: 300)
+        timePicker.modalPresentationStyle = .popover
+        timePicker.popoverPresentationController?.sourceView = addButton
+        present(timePicker, animated: true, completion: nil)
     }
     
     @IBAction func touchUpPlayButton(_ sender: Any) {
