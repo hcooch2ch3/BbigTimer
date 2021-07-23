@@ -42,6 +42,9 @@ class TimerViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(changeTime), name: NSNotification.Name.changeTime, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeState), name: NSNotification.Name.changeState, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateClock), name: NSNotification.Name.updateClock, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyTimeOver), name: NSNotification.Name.timeOver, object: nil)
+    }
+
     }
     
     @objc private func updateClock(_ notification: Notification) {
@@ -142,6 +145,18 @@ class TimerViewController: UIViewController {
         settings.modalPresentationStyle = .popover
         settings.popoverPresentationController?.sourceView = settingButton
         present(settings, animated: true, completion: nil)
+    }
+    
+    func showAlert(message: String, okActionHandler: (() -> Void)?) {
+        let alert: UIAlertController = UIAlertController(title: "BbigTimer", message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (action: UIAlertAction) -> Void in
+            okActionHandler?()
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func initializeAlarmSound() {

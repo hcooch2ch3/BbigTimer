@@ -13,6 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
 
     // MARK: UISceneSession Lifecycle
 

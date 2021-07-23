@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UserNotifications
 
-class HMSTimer {
+final class HMSTimer {
     private var hour: UInt = 0 {
         didSet {
             NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["hour": self.hour])
@@ -25,9 +26,7 @@ class HMSTimer {
     }
     private(set) var state: TimerState = .BeforeAddingTime {
         didSet {
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: NSNotification.Name.changeState, object: nil, userInfo: ["state": self.state])
-            }
+            NotificationCenter.default.post(name: NSNotification.Name.changeState, object: nil, userInfo: ["state": self.state])
         }
     }
     private var timer: Timer?
@@ -51,6 +50,9 @@ class HMSTimer {
                 }
             }
         }
+        if hour == 0 && minute == 0 && second == 0 {
+            timeOver()
+        }
     }
     
     func addTime(hour: UInt, minute: UInt, second: UInt) {
@@ -61,27 +63,53 @@ class HMSTimer {
     }
     
     func play() {
+        setUserNotification()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(decreaseTime), userInfo: nil, repeats: true)
         state = .play
     }
     
     func pause() {
-        guard let timer = self.timer else {
-            return
+        removeUserNotification()
+        if let timer = self.timer {
+            timer.invalidate()
         }
-        timer.invalidate()
         state = .pause
     }
     
     func stop() {
-        guard let timer = self.timer else {
-            return
+        removeUserNotification()
+        if let timer = self.timer {
+            timer.invalidate()
         }
-        timer.invalidate()
         hour = 0
         minute = 0
         second = 0
         state = .BeforeAddingTime
+    }
+    
+    private func timeOver() {
+        NotificationCenter.default.post(name: NSNotification.Name.timeOver, object: nil, userInfo: nil)
+        if let timer = self.timer {
+            timer.invalidate()
+        }
+        state = .BeforeAddingTime
+    }
+    
+    private lazy var notificationID = "BbigTimer"
+    
+    private func setUserNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "BbigTimer"
+        content.body = "Time Over"
+        content.sound = UNNotificationSound(named: UNNotificationSoundName("zapsplat_alarm_sound.aiff"))
+        let timeInterval = Double(second) + Double(minute * 60) + Double(hour * 3600)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
+        let request = UNNotificationRequest(identifier: notificationID, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
+    private func removeUserNotification() {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notificationID])
     }
 }
 
