@@ -7,11 +7,34 @@
 
 import Foundation
 
-class Clock {
-    private lazy var timer: Timer? = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateClock), userInfo: nil, repeats: true)
+final class Clock {
+    static let shared = Clock()
+    private lazy var timer: Timer? = nil
     
-    init() {
-        timer?.fire()
+    var state: Bool = {
+        UserDefaults.standard.register(defaults: ["clockState": true])
+        return UserDefaults.standard.bool(forKey: "clockState")
+    }()
+    {
+        didSet {
+            if state {
+                timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateClock), userInfo: nil, repeats: true)
+            } else {
+                timer?.invalidate()
+                NotificationCenter.default.post(name: NSNotification.Name.updateClock, object: nil, userInfo: ["clock": ""])
+            }
+            UserDefaults.standard.setValue(state, forKey: "clockState")
+        }
+    }
+    
+    private init() {
+        if state {
+            timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateClock), userInfo: nil, repeats: true)
+        }
+    }
+    
+    deinit {
+        timer?.invalidate()
     }
     
     @objc private func updateClock() {
