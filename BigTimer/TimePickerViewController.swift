@@ -20,11 +20,16 @@ class TimePickerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .darkGray
         timePicker.dataSource = self
         timePicker.delegate = self
+        view.backgroundColor = .systemGray2
         setupLayout()
         setupNavigationBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        addTime()
     }
     
     private func setupLayout() {
@@ -37,21 +42,29 @@ class TimePickerViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(touchUpCloseButton))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(touchUpAddButton))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(touchUpResetButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(touchUpDoneButton))
     }
     
-    @objc private func touchUpCloseButton() {
+    @objc private func touchUpResetButton() {
+        timePicker.selectRow(0, inComponent: 0, animated: true)
+        timePicker.selectRow(0, inComponent: 1, animated: true)
+        timePicker.selectRow(0, inComponent: 2, animated: true)
+        hour = 0
+        minute = 0
+        second = 0
+    }
+    
+    @objc private func touchUpDoneButton() {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc private func touchUpAddButton() {
+    private func addTime() {
         if hour == 0 && minute == 0 && second == 0 {
             return
         }
         let userInfo = ["hour": hour, "minute": minute, "second": second]
         NotificationCenter.default.post(name: NSNotification.Name.addTime, object: nil, userInfo: userInfo)
-        dismiss(animated: true, completion: nil)
     }
 
 }
@@ -70,7 +83,7 @@ extension TimePickerViewController: UIPickerViewDataSource, UIPickerViewDelegate
             return 60
         }
     }
-    
+        
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return UInt(row).timeString
     }
