@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TimerViewController: UIViewController {
     @IBOutlet weak var hourLabel: UILabel!
@@ -19,6 +20,7 @@ class TimerViewController: UIViewController {
     
     private let timer = HMSTimer()
     private let clock = Clock()
+    private var alarmSoundPlayer: AVAudioPlayer?
     var isAwakeMode: Bool = {
         UserDefaults.standard.register(defaults: ["isAwakeMode": false])
         let isAwakeMode = UserDefaults.standard.bool(forKey: "isAwakeMode")
@@ -35,6 +37,7 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeAlarmSound()
         NotificationCenter.default.addObserver(self, selector: #selector(addTime), name: NSNotification.Name.addTime, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeTime), name: NSNotification.Name.changeTime, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeState), name: NSNotification.Name.changeState, object: nil)
@@ -109,6 +112,13 @@ class TimerViewController: UIViewController {
         }
     }
     
+    @objc private func notifyTimeOver() {
+        self.alarmSoundPlayer?.play()
+        showAlert(message: "Time Over") {
+            self.alarmSoundPlayer?.stop()
+        }
+    }
+    
     @IBAction func touchUpPlayButton(_ sender: Any) {
         switch timer.state {
         case .play:
@@ -134,5 +144,20 @@ class TimerViewController: UIViewController {
         present(settings, animated: true, completion: nil)
     }
     
+    func initializeAlarmSound() {
+        guard let soundAsset: NSDataAsset = NSDataAsset(name: "alarm_sound") else {
+            showAlert(message: "음원 파일 에셋을 가져올 수 없습니다", okActionHandler: nil)
+            print("음원 파일 에셋을 가져올 수 없습니다")
+            return
+        }
+        do {
+            try self.alarmSoundPlayer = AVAudioPlayer(data: soundAsset.data)
+        } catch let error as NSError {
+            showAlert(message: "플레이어 초기화 실패", okActionHandler: nil)
+            print("플레이어 초기화 실패")
+            print("코드 : \(error.code), 메세지 : \(error.localizedDescription)")
+        }
+    }
+}
 }
 

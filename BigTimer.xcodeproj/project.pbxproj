@@ -21,6 +21,7 @@
 		3661560526A43CE00067F5E4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661560426A43CE00067F5E4 /* SettingsTableViewController.swift */; };
 		3661560926A58E1D0067F5E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661560826A58E1D0067F5E4 /* Constants.swift */; };
 		3661560D26A59DAC0067F5E4 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661560C26A59DAC0067F5E4 /* SettingsTableViewCell.swift */; };
+		3661560F26A8477F0067F5E4 /* zapsplat_alarm_sound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 3661560E26A8477F0067F5E4 /* zapsplat_alarm_sound.aiff */; };
 		744FA5B82733FAA1A1B4C940 /* Pods_BigTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88CC78917177C7E60ADA82A /* Pods_BigTimer.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		3661560426A43CE00067F5E4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		3661560826A58E1D0067F5E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3661560C26A59DAC0067F5E4 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		3661560E26A8477F0067F5E4 /* zapsplat_alarm_sound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = zapsplat_alarm_sound.aiff; sourceTree = "<group>"; };
 		7639D07B495933BCEA956F14 /* Pods-BigTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigTimer.release.xcconfig"; path = "Target Support Files/Pods-BigTimer/Pods-BigTimer.release.xcconfig"; sourceTree = "<group>"; };
 		B88CC78917177C7E60ADA82A /* Pods_BigTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BigTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 		366155E3269C3E800067F5E4 /* BigTimer */ = {
 			isa = PBXGroup;
 			children = (
+				3661561126A848100067F5E4 /* Sound */,
 				366155E4269C3E800067F5E4 /* AppDelegate.swift */,
 				366155E6269C3E800067F5E4 /* SceneDelegate.swift */,
 				366155E8269C3E800067F5E4 /* TimerViewController.swift */,
@@ -104,6 +107,14 @@
 				3661560C26A59DAC0067F5E4 /* SettingsTableViewCell.swift */,
 			);
 			path = BigTimer;
+			sourceTree = "<group>";
+		};
+		3661561126A848100067F5E4 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				3661560E26A8477F0067F5E4 /* zapsplat_alarm_sound.aiff */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 		EF145C772C3D43F25CB50025 /* Pods */ = {
@@ -174,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3661560F26A8477F0067F5E4 /* zapsplat_alarm_sound.aiff in Resources */,
 				366155F1269C3E810067F5E4 /* LaunchScreen.storyboard in Resources */,
 				366155EE269C3E810067F5E4 /* Assets.xcassets in Resources */,
 				366155EC269C3E800067F5E4 /* Main.storyboard in Resources */,
