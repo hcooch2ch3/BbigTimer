@@ -18,8 +18,9 @@
 		366155FD269C606B0067F5E4 /* UInt+timeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366155FC269C606B0067F5E4 /* UInt+timeString.swift */; };
 		366155FF269DEED80067F5E4 /* HMSTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366155FE269DEED80067F5E4 /* HMSTimer.swift */; };
 		36615603269EE58A0067F5E4 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36615602269EE58A0067F5E4 /* Clock.swift */; };
-		3661560526A43CE00067F5E4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661560426A43CE00067F5E4 /* SettingsViewController.swift */; };
+		3661560526A43CE00067F5E4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661560426A43CE00067F5E4 /* SettingsTableViewController.swift */; };
 		3661560926A58E1D0067F5E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661560826A58E1D0067F5E4 /* Constants.swift */; };
+		3661560D26A59DAC0067F5E4 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661560C26A59DAC0067F5E4 /* SettingsTableViewCell.swift */; };
 		744FA5B82733FAA1A1B4C940 /* Pods_BigTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88CC78917177C7E60ADA82A /* Pods_BigTimer.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +39,9 @@
 		366155FC269C606B0067F5E4 /* UInt+timeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+timeString.swift"; sourceTree = "<group>"; };
 		366155FE269DEED80067F5E4 /* HMSTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMSTimer.swift; sourceTree = "<group>"; };
 		36615602269EE58A0067F5E4 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
-		3661560426A43CE00067F5E4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3661560426A43CE00067F5E4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		3661560826A58E1D0067F5E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3661560C26A59DAC0067F5E4 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		7639D07B495933BCEA956F14 /* Pods-BigTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigTimer.release.xcconfig"; path = "Target Support Files/Pods-BigTimer/Pods-BigTimer.release.xcconfig"; sourceTree = "<group>"; };
 		B88CC78917177C7E60ADA82A /* Pods_BigTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BigTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -97,8 +99,9 @@
 				366155FC269C606B0067F5E4 /* UInt+timeString.swift */,
 				366155FE269DEED80067F5E4 /* HMSTimer.swift */,
 				36615602269EE58A0067F5E4 /* Clock.swift */,
-				3661560426A43CE00067F5E4 /* SettingsViewController.swift */,
+				3661560426A43CE00067F5E4 /* SettingsTableViewController.swift */,
 				3661560826A58E1D0067F5E4 /* Constants.swift */,
+				3661560C26A59DAC0067F5E4 /* SettingsTableViewCell.swift */,
 			);
 			path = BigTimer;
 			sourceTree = "<group>";
@@ -232,7 +235,8 @@
 				366155FF269DEED80067F5E4 /* HMSTimer.swift in Sources */,
 				366155E5269C3E800067F5E4 /* AppDelegate.swift in Sources */,
 				3661560926A58E1D0067F5E4 /* Constants.swift in Sources */,
-				3661560526A43CE00067F5E4 /* SettingsViewController.swift in Sources */,
+				3661560D26A59DAC0067F5E4 /* SettingsTableViewCell.swift in Sources */,
+				3661560526A43CE00067F5E4 /* SettingsTableViewController.swift in Sources */,
 				366155FB269C5C710067F5E4 /* NSNotification.Name+CustomNotification.swift in Sources */,
 				366155FD269C606B0067F5E4 /* UInt+timeString.swift in Sources */,
 				366155E7269C3E800067F5E4 /* SceneDelegate.swift in Sources */,

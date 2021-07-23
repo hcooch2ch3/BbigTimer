@@ -15,9 +15,23 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var settingButton: UIButton!
     
     private let timer = HMSTimer()
     private let clock = Clock()
+    var isAwakeMode: Bool = {
+        UserDefaults.standard.register(defaults: ["isAwakeMode": false])
+        let isAwakeMode = UserDefaults.standard.bool(forKey: "isAwakeMode")
+        UIApplication.shared.isIdleTimerDisabled = isAwakeMode
+        return isAwakeMode
+    }()
+    {
+        didSet {
+            UserDefaults.standard.setValue(isAwakeMode, forKey: "isAwakeMode")
+            UIApplication.shared.isIdleTimerDisabled = isAwakeMode
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,5 +123,16 @@ class TimerViewController: UIViewController {
     @IBAction func touchUpStopButton(_ sender: Any) {
         timer.stop()
     }
+    
+    @IBAction func touchUpSettingButton(_ sender: Any) {
+        let settingsTableViewController = SettingsTableViewController(style: .grouped)
+        settingsTableViewController.timerViewController = self
+        let settings = UINavigationController(rootViewController: settingsTableViewController)
+        settings.preferredContentSize = CGSize(width: 300, height: 300)
+        settings.modalPresentationStyle = .popover
+        settings.popoverPresentationController?.sourceView = settingButton
+        present(settings, animated: true, completion: nil)
+    }
+    
 }
 
