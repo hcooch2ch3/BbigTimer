@@ -7,6 +7,9 @@
 
 import UIKit
 import AVFoundation
+import GoogleMobileAds
+import AppTrackingTransparency
+import AdSupport
 
 class TimerViewController: UIViewController {
     @IBOutlet weak var hourLabel: UILabel!
@@ -18,6 +21,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var settingButton: UIButton!
     
+    var bannerView: GADBannerView!
     private let timer = HMSTimer()
     private let clock = Clock()
     private var alarmSoundPlayer: AVAudioPlayer?
@@ -37,7 +41,21 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (bool, error) in
+        }
         initializeAlarmSound()
+        setupNotifications()
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = Constants.AdMob.adUnitID
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        DispatchQueue.global().async {
+            self.requestIDFA()
+        }
+    }
+    
+    private func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(addTime), name: NSNotification.Name.addTime, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeTime), name: NSNotification.Name.changeTime, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeState), name: NSNotification.Name.changeState, object: nil)
@@ -45,7 +63,36 @@ class TimerViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(notifyTimeOver), name: NSNotification.Name.timeOver, object: nil)
     }
 
+    private func requestIDFA() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                self.bannerView.load(GADRequest())
+            })
+        } else {
+            self.bannerView.load(GADRequest())
+        }
     }
+    
+    private func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+          [NSLayoutConstraint(item: bannerView,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: view.safeAreaLayoutGuide,
+                              attribute: .bottom,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: bannerView,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+       }
     
     @objc private func updateClock(_ notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: String],
@@ -174,5 +221,13 @@ class TimerViewController: UIViewController {
         }
     }
 }
+
+extension TimerViewController: GADBannerViewDelegate {
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+        })
+    }
 }
 
