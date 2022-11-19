@@ -14,7 +14,6 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.reuseIdentifier)
-        tableView.allowsSelection = false
         setupNavigationBar()
     }
     
@@ -27,31 +26,50 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        if section == 0 {
+            return 2
+        } else {
+            return 1
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath) as? SettingsTableViewCell else {
-            return UITableViewCell()
-        }
-        cell.delegate = self
-        switch indexPath.row {
-        case Settings.AwakeMode.rawValue:
-            cell.label.text = "Awake Mode"
-            if let timerViewController = timerViewController {
-                cell.switch.isOn = timerViewController.isAwakeMode
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath) as? SettingsTableViewCell else {
+                return UITableViewCell()
             }
-        case Settings.CurrentTime.rawValue:
-            cell.label.text = "Current Time"
-            cell.switch.isOn = Clock.shared.state
-        default:
-            break
+            cell.selectionStyle = .none
+            cell.delegate = self
+            switch indexPath.row {
+            case Settings.AwakeMode.rawValue:
+                cell.label.text = "Awake Mode"
+                if let timerViewController = timerViewController {
+                    cell.switch.isOn = timerViewController.isAwakeMode
+                }
+            case Settings.CurrentTime.rawValue:
+                cell.label.text = "Current Time"
+                cell.switch.isOn = Clock.shared.state
+            default:
+                break
+            }
+            return cell
+        } else {
+            let cell = UITableViewCell()
+            cell.selectionStyle = .blue
+            cell.accessoryType = .disclosureIndicator
+            cell.textLabel?.text = "Remove Ads"
+            return cell
         }
-        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 && indexPath.row == 0 {
+            navigationController?.pushViewController(RemoveAdsViewController(), animated: true)
+        }
     }
 
 }

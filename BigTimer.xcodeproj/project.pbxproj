@@ -23,6 +23,7 @@
 		3661560D26A59DAC0067F5E4 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661560C26A59DAC0067F5E4 /* SettingsTableViewCell.swift */; };
 		3661560F26A8477F0067F5E4 /* zapsplat_alarm_sound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 3661560E26A8477F0067F5E4 /* zapsplat_alarm_sound.aiff */; };
 		3661561726AD58500067F5E4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3661561626AD58500067F5E4 /* StoreKit.framework */; };
+		3661561926AD7E660067F5E4 /* RemoveAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661561826AD7E660067F5E4 /* RemoveAdsViewController.swift */; };
 		744FA5B82733FAA1A1B4C940 /* Pods_BigTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88CC78917177C7E60ADA82A /* Pods_BigTimer.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		3661560C26A59DAC0067F5E4 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		3661560E26A8477F0067F5E4 /* zapsplat_alarm_sound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = zapsplat_alarm_sound.aiff; sourceTree = "<group>"; };
 		3661561626AD58500067F5E4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3661561826AD7E660067F5E4 /* RemoveAdsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAdsViewController.swift; sourceTree = "<group>"; };
 		7639D07B495933BCEA956F14 /* Pods-BigTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigTimer.release.xcconfig"; path = "Target Support Files/Pods-BigTimer/Pods-BigTimer.release.xcconfig"; sourceTree = "<group>"; };
 		B88CC78917177C7E60ADA82A /* Pods_BigTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BigTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 				3661560426A43CE00067F5E4 /* SettingsTableViewController.swift */,
 				3661560826A58E1D0067F5E4 /* Constants.swift */,
 				3661560C26A59DAC0067F5E4 /* SettingsTableViewCell.swift */,
+				3661561826AD7E660067F5E4 /* RemoveAdsViewController.swift */,
 			);
 			path = BigTimer;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				36615603269EE58A0067F5E4 /* Clock.swift in Sources */,
 				366155FF269DEED80067F5E4 /* HMSTimer.swift in Sources */,
 				366155E5269C3E800067F5E4 /* AppDelegate.swift in Sources */,
+				3661561926AD7E660067F5E4 /* RemoveAdsViewController.swift in Sources */,
 				3661560926A58E1D0067F5E4 /* Constants.swift in Sources */,
 				3661560D26A59DAC0067F5E4 /* SettingsTableViewCell.swift in Sources */,
 				3661560526A43CE00067F5E4 /* SettingsTableViewController.swift in Sources */,
