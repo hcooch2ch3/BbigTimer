@@ -12,14 +12,25 @@ import AppTrackingTransparency
 import AdSupport
 
 class TimerViewController: UIViewController {
-    @IBOutlet weak var hourLabel: UILabel!
-    @IBOutlet weak var minuteLabel: UILabel!
-    @IBOutlet weak var secondLabel: UILabel!
-    @IBOutlet weak var clockLabel: UILabel!
+    @IBOutlet weak var hour1Label: UILabel!
+    @IBOutlet weak var hour2Label: UILabel!
+    @IBOutlet weak var minute1Label: UILabel!
+    @IBOutlet weak var minute2Label: UILabel!
+    @IBOutlet weak var second1Label: UILabel!
+    @IBOutlet weak var second2Label: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var settingButton: UIButton!
+    @IBOutlet weak var currentDateLabel: UILabel!
+    @IBOutlet weak var currentHour1Label: UILabel!
+    @IBOutlet weak var currentHour2Label: UILabel!
+    @IBOutlet weak var currentTimeColon1Label: UILabel!
+    @IBOutlet weak var currentMinute1Label: UILabel!
+    @IBOutlet weak var currentMinute2Label: UILabel!
+    @IBOutlet weak var currentTimeColon2Label: UILabel!
+    @IBOutlet weak var currentSecond1Label: UILabel!
+    @IBOutlet weak var currentSecond2Label: UILabel!
     
     var bannerView: GADBannerView!
     private let timer = HMSTimer()
@@ -99,10 +110,40 @@ class TimerViewController: UIViewController {
     
     @objc private func updateClock(_ notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: String],
-              let clock = userInfo["clock"] else {
+              let currentDate = userInfo["date"],
+              let currentHour = userInfo["hour"],
+              let currentMinute = userInfo["minute"],
+              let currentSecond = userInfo["second"] else {
+            self.currentDateLabel.text = ""
+            self.currentHour1Label.text = ""
+            self.currentHour2Label.text = ""
+            self.currentMinute1Label.text = ""
+            self.currentMinute2Label.text = ""
+            self.currentSecond1Label.text = ""
+            self.currentSecond2Label.text = ""
+            self.currentTimeColon1Label.text = ""
+            self.currentTimeColon2Label.text = ""
             return
         }
-        self.clockLabel.text = clock
+        self.currentTimeColon1Label.text = ":"
+        self.currentTimeColon2Label.text = ":"
+        
+        self.currentDateLabel.text = currentDate
+        
+        let index0 = currentHour.index(currentHour.startIndex, offsetBy: 0)
+        let index1 = currentHour.index(currentHour.startIndex, offsetBy: 1)
+        self.currentHour1Label.text = String(currentHour[index0])
+        self.currentHour2Label.text = String(currentHour[index1])
+        
+        let index2 = currentMinute.index(currentMinute.startIndex, offsetBy: 0)
+        let index3 = currentMinute.index(currentMinute.startIndex, offsetBy: 1)
+        self.currentMinute1Label.text = String(currentMinute[index2])
+        self.currentMinute2Label.text = String(currentMinute[index3])
+        
+        let index4 = currentSecond.index(currentSecond.startIndex, offsetBy: 0)
+        let index5 = currentSecond.index(currentSecond.startIndex, offsetBy: 1)
+        self.currentSecond1Label.text = String(currentSecond[index4])
+        self.currentSecond2Label.text = String(currentSecond[index5])
     }
 
     @objc private func addTime(_ notification: Notification) {
@@ -118,17 +159,26 @@ class TimerViewController: UIViewController {
     }
     
     @objc private func changeTime(_ notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String: UInt] else {
+        guard let userInfo = notification.userInfo as? [String: String] else {
             return
         }
         if let hour = userInfo["hour"] {
-            self.hourLabel.text = hour.timeString
+            let index0 = hour.index(hour.startIndex, offsetBy: 0)
+            let index1 = hour.index(hour.startIndex, offsetBy: 1)
+            self.hour1Label.text = String(hour[index0])
+            self.hour2Label.text = String(hour[index1])
         }
         if let minute = userInfo["minute"] {
-            self.minuteLabel.text = minute.timeString
+            let index0 = minute.index(minute.startIndex, offsetBy: 0)
+            let index1 = minute.index(minute.startIndex, offsetBy: 1)
+            self.minute1Label.text = String(minute[index0])
+            self.minute2Label.text = String(minute[index1])
         }
         if let second = userInfo["second"] {
-            self.secondLabel.text = second.timeString
+            let index0 = second.index(second.startIndex, offsetBy: 0)
+            let index1 = second.index(second.startIndex, offsetBy: 1)
+            self.second1Label.text = String(second[index0])
+            self.second2Label.text = String(second[index1])
         }
     }
     

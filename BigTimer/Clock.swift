@@ -21,7 +21,7 @@ final class Clock {
                 timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateClock), userInfo: nil, repeats: true)
             } else {
                 timer?.invalidate()
-                NotificationCenter.default.post(name: NSNotification.Name.updateClock, object: nil, userInfo: ["clock": ""])
+                NotificationCenter.default.post(name: NSNotification.Name.updateClock, object: nil, userInfo: nil)
             }
             UserDefaults.standard.setValue(state, forKey: "clockState")
         }
@@ -38,7 +38,13 @@ final class Clock {
     }
     
     @objc private func updateClock() {
-        let date = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .medium)
-        NotificationCenter.default.post(name: NSNotification.Name.updateClock, object: nil, userInfo: ["clock": date])
+        let currentDate = Date()
+        let date = DateFormatter.localizedString(from: currentDate, dateStyle: .medium, timeStyle: .none)
+        let hour = String(format: "%02d", Calendar.current.component(.hour, from: currentDate))
+        let minute = String(format: "%02d", Calendar.current.component(.minute, from: currentDate))
+        let second = String(format: "%02d", Calendar.current.component(.second, from: currentDate))
+        
+        let userInfo = ["date": date, "hour": hour, "minute": minute, "second": second]
+        NotificationCenter.default.post(name: NSNotification.Name.updateClock, object: nil, userInfo: userInfo)
     }
 }
