@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,80 +18,247 @@
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEd-Ue-ief" userLabel="TimerStackView">
-                                <rect key="frame" x="54" y="166.33333333333334" width="818" height="95.666666666666657"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LZB-2X-kfz">
+                                <rect key="frame" x="-67" y="102" width="1060" height="54"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aD-5q-eD8">
-                                        <rect key="frame" x="0.0" y="0.0" width="245.33333333333334" height="95.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="47Z-AZ-NgJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                        <color key="textColor" systemColor="systemGreenColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        </variation>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxZ-fV-U7D" userLabel="TimerStackView">
+                                        <rect key="frame" x="60" y="0.0" width="1000" height="54"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ecm-7H-SoI">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCt-VR-qKO">
+                                                <rect key="frame" x="150" y="0.0" width="150" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6Z-UQ-uNf">
+                                                <rect key="frame" x="300" y="0.0" width="50" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yji-km-Ia6">
+                                                <rect key="frame" x="350" y="0.0" width="150" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YwW-zq-I1p">
+                                                <rect key="frame" x="500" y="0.0" width="150" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NR-5k-K44">
+                                                <rect key="frame" x="650" y="0.0" width="50" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiS-mL-9fK">
+                                                <rect key="frame" x="700" y="0.0" width="150" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wd-ig-h7d">
+                                                <rect key="frame" x="850" y="0.0" width="150" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                </variation>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Yji-km-Ia6" firstAttribute="width" secondItem="gxZ-fV-U7D" secondAttribute="width" multiplier="0.15" id="5Ua-QP-5Y3"/>
+                                            <constraint firstItem="WCt-VR-qKO" firstAttribute="width" secondItem="gxZ-fV-U7D" secondAttribute="width" multiplier="0.15" id="B3Z-BO-WvB"/>
+                                            <constraint firstItem="7NR-5k-K44" firstAttribute="width" secondItem="gxZ-fV-U7D" secondAttribute="width" multiplier="0.05" id="D9A-vo-eas"/>
+                                            <constraint firstItem="6wd-ig-h7d" firstAttribute="width" secondItem="gxZ-fV-U7D" secondAttribute="width" multiplier="0.15" id="EbK-Y5-Bh7"/>
+                                            <constraint firstItem="Ecm-7H-SoI" firstAttribute="width" secondItem="gxZ-fV-U7D" secondAttribute="width" multiplier="15:100" id="JWu-Wz-uAb"/>
+                                            <constraint firstItem="JiS-mL-9fK" firstAttribute="width" secondItem="gxZ-fV-U7D" secondAttribute="width" multiplier="0.15" id="O3o-2a-one"/>
+                                            <constraint firstItem="YwW-zq-I1p" firstAttribute="width" secondItem="gxZ-fV-U7D" secondAttribute="width" multiplier="0.15" id="oz2-Ol-GOt"/>
+                                            <constraint firstItem="O6Z-UQ-uNf" firstAttribute="width" secondItem="gxZ-fV-U7D" secondAttribute="width" multiplier="5:100" id="w32-Ep-Hev"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEd-Ue-ief" userLabel="TimerStackView">
+                                <rect key="frame" x="10" y="130.33333333333331" width="906" height="167.33333333333331"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aD-5q-eD8">
+                                        <rect key="frame" x="0.0" y="0.0" width="136" height="167.33333333333334"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="180"/>
                                         <color key="textColor" systemColor="systemGreenColor"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="140"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhC-hv-gHQ">
+                                        <rect key="frame" x="136" y="0.0" width="135.66666666666663" height="167.33333333333334"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="180"/>
+                                        <color key="textColor" systemColor="systemGreenColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="140"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGe-VZ-Ofe">
-                                        <rect key="frame" x="245.33333333333331" y="0.0" width="41" height="95.666666666666671"/>
+                                        <rect key="frame" x="271.66666666666669" y="0.0" width="45.333333333333314" height="167.33333333333334"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="180"/>
                                         <color key="textColor" systemColor="systemGreenColor"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="140"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1S-gp-leo">
-                                        <rect key="frame" x="286.33333333333331" y="0.0" width="245.33333333333331" height="95.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1S-gp-leo">
+                                        <rect key="frame" x="317" y="0.0" width="136" height="167.33333333333334"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="180"/>
                                         <color key="textColor" systemColor="systemGreenColor"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="140"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gof-YQ-6IK">
+                                        <rect key="frame" x="453" y="0.0" width="136" height="167.33333333333334"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="180"/>
+                                        <color key="textColor" systemColor="systemGreenColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="140"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thZ-of-Kkg">
-                                        <rect key="frame" x="531.66666666666663" y="0.0" width="41" height="95.666666666666671"/>
+                                        <rect key="frame" x="589" y="0.0" width="45.333333333333371" height="167.33333333333334"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="180"/>
                                         <color key="textColor" systemColor="systemGreenColor"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="140"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gb0-97-1lv">
-                                        <rect key="frame" x="572.66666666666663" y="0.0" width="245.33333333333337" height="95.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gb0-97-1lv">
+                                        <rect key="frame" x="634.33333333333337" y="0.0" width="135.66666666666663" height="167.33333333333334"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="180"/>
                                         <color key="textColor" systemColor="systemGreenColor"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="140"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCJ-kq-MB1">
+                                        <rect key="frame" x="770" y="0.0" width="136" height="167.33333333333334"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="180"/>
+                                        <color key="textColor" systemColor="systemGreenColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="140"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                         </variation>
                                     </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="SGe-VZ-Ofe" firstAttribute="width" secondItem="lEd-Ue-ief" secondAttribute="width" multiplier="5:100" id="B94-ys-slP"/>
+                                    <constraint firstItem="yhC-hv-gHQ" firstAttribute="width" secondItem="lEd-Ue-ief" secondAttribute="width" multiplier="0.15" id="KGA-He-SKH"/>
+                                    <constraint firstItem="gof-YQ-6IK" firstAttribute="width" secondItem="lEd-Ue-ief" secondAttribute="width" multiplier="0.15" id="KiM-59-hsr"/>
                                     <constraint firstItem="thZ-of-Kkg" firstAttribute="width" secondItem="lEd-Ue-ief" secondAttribute="width" multiplier="0.05" id="StV-9h-ALJ"/>
-                                    <constraint firstItem="Gb0-97-1lv" firstAttribute="width" secondItem="lEd-Ue-ief" secondAttribute="width" multiplier="0.3" id="cJ1-AO-GwQ"/>
-                                    <constraint firstItem="4aD-5q-eD8" firstAttribute="width" secondItem="lEd-Ue-ief" secondAttribute="width" multiplier="3:10" id="eVC-rt-BfL"/>
-                                    <constraint firstItem="o1S-gp-leo" firstAttribute="width" secondItem="lEd-Ue-ief" secondAttribute="width" multiplier="0.3" id="vni-H7-YuU"/>
+                                    <constraint firstItem="Gb0-97-1lv" firstAttribute="width" secondItem="lEd-Ue-ief" secondAttribute="width" multiplier="0.15" id="cJ1-AO-GwQ"/>
+                                    <constraint firstItem="4aD-5q-eD8" firstAttribute="width" secondItem="lEd-Ue-ief" secondAttribute="width" multiplier="15:100" id="eVC-rt-BfL"/>
+                                    <constraint firstItem="QCJ-kq-MB1" firstAttribute="width" secondItem="lEd-Ue-ief" secondAttribute="width" multiplier="0.15" id="h4N-9M-7L6"/>
+                                    <constraint firstItem="o1S-gp-leo" firstAttribute="width" secondItem="lEd-Ue-ief" secondAttribute="width" multiplier="0.15" id="vni-H7-YuU"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="QrZ-yb-E7O" userLabel="buttonStackView">
-                                <rect key="frame" x="363" y="316.66666666666669" width="200" height="35.333333333333314"/>
+                                <rect key="frame" x="363" y="303.66666666666669" width="200" height="35.333333333333314"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgc-Yy-fXu">
                                         <rect key="frame" x="0.0" y="0.33333333333331439" width="36.666666666666664" height="34.666666666666664"/>
@@ -160,45 +327,40 @@
                                     </constraint>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="Vd2-ZI-RLO">
-                                <rect key="frame" x="463" y="55" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
-                                <color key="textColor" systemColor="systemGreenColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact">
-                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                </variation>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Vd2-ZI-RLO" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="10" id="8JX-Rr-OGT"/>
-                            <constraint firstItem="Vd2-ZI-RLO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MnO-ro-HZZ"/>
                             <constraint firstItem="QrZ-yb-E7O" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O6P-8e-Sti"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QrZ-yb-E7O" secondAttribute="bottom" constant="100" id="SDl-ec-nVR">
                                 <variation key="heightClass=compact" constant="55"/>
                             </constraint>
                             <constraint firstItem="lEd-Ue-ief" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XcN-TQ-kut"/>
-                            <constraint firstItem="Vd2-ZI-RLO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="b6r-qo-HPz"/>
                             <constraint firstItem="lEd-Ue-ief" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="cen-4s-ZFw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lEd-Ue-ief" secondAttribute="trailing" constant="10" id="g8s-AK-pfc"/>
+                            <constraint firstItem="LZB-2X-kfz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hpi-rn-6Hl"/>
                             <constraint firstItem="lEd-Ue-ief" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iW9-fF-Vq0"/>
-                            <constraint firstItem="Vd2-ZI-RLO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="nGO-Uy-FeY">
-                                <variation key="heightClass=compact" constant="55"/>
-                            </constraint>
+                            <constraint firstItem="LZB-2X-kfz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="55" id="v1b-3h-CXi"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="Xgc-Yy-fXu" id="qRT-k3-rFE"/>
-                        <outlet property="clockLabel" destination="Vd2-ZI-RLO" id="vsE-Vi-Ur5"/>
-                        <outlet property="hourLabel" destination="4aD-5q-eD8" id="rxc-4O-4Fz"/>
-                        <outlet property="minuteLabel" destination="o1S-gp-leo" id="cEg-OD-Lrz"/>
+                        <outlet property="currentDateLabel" destination="47Z-AZ-NgJ" id="Msv-99-2lV"/>
+                        <outlet property="currentHour1Label" destination="Ecm-7H-SoI" id="S2Z-GK-Idz"/>
+                        <outlet property="currentHour2Label" destination="WCt-VR-qKO" id="7Oy-e1-HRA"/>
+                        <outlet property="currentMinute1Label" destination="Yji-km-Ia6" id="V4g-pe-qTW"/>
+                        <outlet property="currentMinute2Label" destination="YwW-zq-I1p" id="isH-a8-h53"/>
+                        <outlet property="currentSecond1Label" destination="JiS-mL-9fK" id="V2I-Rx-XYK"/>
+                        <outlet property="currentSecond2Label" destination="6wd-ig-h7d" id="scB-57-Hcs"/>
+                        <outlet property="currentTimeColon1Label" destination="O6Z-UQ-uNf" id="n5C-hf-imJ"/>
+                        <outlet property="currentTimeColon2Label" destination="7NR-5k-K44" id="vD5-jL-i3R"/>
+                        <outlet property="hour1Label" destination="4aD-5q-eD8" id="rxc-4O-4Fz"/>
+                        <outlet property="hour2Label" destination="yhC-hv-gHQ" id="zot-Bk-RJP"/>
+                        <outlet property="minute1Label" destination="o1S-gp-leo" id="cEg-OD-Lrz"/>
+                        <outlet property="minute2Label" destination="gof-YQ-6IK" id="wlW-hf-DRl"/>
                         <outlet property="playButton" destination="EUB-lO-eWr" id="eX0-ep-eHP"/>
-                        <outlet property="secondLabel" destination="Gb0-97-1lv" id="9Kd-Fm-9i6"/>
+                        <outlet property="second1Label" destination="Gb0-97-1lv" id="9Kd-Fm-9i6"/>
+                        <outlet property="second2Label" destination="QCJ-kq-MB1" id="M4G-Rb-GBS"/>
                         <outlet property="settingButton" destination="sQK-T9-mcg" id="6FU-FE-WwC"/>
                         <outlet property="stopButton" destination="tBO-AV-H9N" id="LAQ-rv-qHK"/>
                     </connections>
@@ -209,8 +371,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gear" catalog="system" width="128" height="119"/>
-        <image name="play" catalog="system" width="120" height="128"/>
+        <image name="gear" catalog="system" width="128" height="122"/>
+        <image name="play" catalog="system" width="117" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="stop" catalog="system" width="128" height="113"/>
         <systemColor name="systemGreenColor">

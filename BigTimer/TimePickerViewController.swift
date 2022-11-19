@@ -85,7 +85,7 @@ extension TimePickerViewController: UIPickerViewDataSource, UIPickerViewDelegate
     }
         
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return UInt(row).timeString
+        return String(format: "%02d", row)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

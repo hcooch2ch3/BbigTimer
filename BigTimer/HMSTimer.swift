@@ -11,17 +11,18 @@ import UserNotifications
 final class HMSTimer {
     private var hour: UInt = 0 {
         didSet {
-            NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["hour": self.hour])
+            
+            NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["hour": String(format: "%02d", self.hour)])
         }
     }
     private var minute: UInt = 0 {
         didSet {
-            NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["minute": self.minute])
+            NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["minute": String(format: "%02d", self.minute)])
         }
     }
     private var second: UInt = 0 {
         didSet {
-            NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["second": self.second])
+            NotificationCenter.default.post(name: NSNotification.Name.changeTime, object: nil, userInfo: ["second": String(format: "%02d", self.second)])
         }
     }
     private(set) var state: TimerState = .BeforeAddingTime {
