@@ -44,9 +44,9 @@ class SettingsTableViewCell: UITableViewCell {
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
+            label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15),
             label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            `switch`.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
+            `switch`.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15),
             `switch`.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
