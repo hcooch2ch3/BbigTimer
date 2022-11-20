@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		366134132929458E006B324D /* IAPService+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366134122929458E006B324D /* IAPService+Notification.swift */; };
+		36613415292AA59E006B324D /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36613414292AA59E006B324D /* Secrets.swift */; };
+		36613417292AB09C006B324D /* SKProduct+LocalizedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36613416292AB09C006B324D /* SKProduct+LocalizedPrice.swift */; };
 		366155E5269C3E800067F5E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366155E4269C3E800067F5E4 /* AppDelegate.swift */; };
 		366155E7269C3E800067F5E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366155E6269C3E800067F5E4 /* SceneDelegate.swift */; };
 		366155E9269C3E800067F5E4 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366155E8269C3E800067F5E4 /* TimerViewController.swift */; };
@@ -29,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		054C2F8B7C038C379BD69281 /* Pods-BigTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigTimer.debug.xcconfig"; path = "Target Support Files/Pods-BigTimer/Pods-BigTimer.debug.xcconfig"; sourceTree = "<group>"; };
+		366134122929458E006B324D /* IAPService+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAPService+Notification.swift"; sourceTree = "<group>"; };
+		36613414292AA59E006B324D /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		36613416292AB09C006B324D /* SKProduct+LocalizedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+LocalizedPrice.swift"; sourceTree = "<group>"; };
 		366155E1269C3E800067F5E4 /* BigTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		366155E4269C3E800067F5E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		366155E6269C3E800067F5E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +118,9 @@
 				3661560826A58E1D0067F5E4 /* Constants.swift */,
 				3661560C26A59DAC0067F5E4 /* SettingsTableViewCell.swift */,
 				3661561826AD7E660067F5E4 /* RemoveAdsViewController.swift */,
+				366134122929458E006B324D /* IAPService+Notification.swift */,
+				36613414292AA59E006B324D /* Secrets.swift */,
+				36613416292AB09C006B324D /* SKProduct+LocalizedPrice.swift */,
 			);
 			path = BigTimer;
 			sourceTree = "<group>";
@@ -254,8 +263,11 @@
 				366155FF269DEED80067F5E4 /* HMSTimer.swift in Sources */,
 				366155E5269C3E800067F5E4 /* AppDelegate.swift in Sources */,
 				3661561926AD7E660067F5E4 /* RemoveAdsViewController.swift in Sources */,
+				36613417292AB09C006B324D /* SKProduct+LocalizedPrice.swift in Sources */,
 				3661560926A58E1D0067F5E4 /* Constants.swift in Sources */,
 				3661560D26A59DAC0067F5E4 /* SettingsTableViewCell.swift in Sources */,
+				366134132929458E006B324D /* IAPService+Notification.swift in Sources */,
+				36613415292AA59E006B324D /* Secrets.swift in Sources */,
 				3661560526A43CE00067F5E4 /* SettingsTableViewController.swift in Sources */,
 				366155FB269C5C710067F5E4 /* NSNotification.Name+CustomNotification.swift in Sources */,
 				366155FD269C606B0067F5E4 /* UInt+timeString.swift in Sources */,
