@@ -149,3 +149,5 @@ GitHub.sublime-settings
 Info.plist
 Constants.swift
 
+# ETC
+Secrets.swift
