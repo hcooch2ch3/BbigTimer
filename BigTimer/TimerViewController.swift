@@ -55,21 +55,22 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (bool, error) in
-        }
         initializeAlarmSound()
         setupNotifications()
-        if !UserDefaults.standard.bool(forKey: "ads_removed") {
-            bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-            addBannerViewToView(bannerView)
-            bannerView.adUnitID = Constants.AdMob.adUnitID
-            bannerView.rootViewController = self
-            bannerView.delegate = self
-            DispatchQueue.global().async {
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = Constants.AdMob.adUnitID
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (bool, error) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.requestIDFA()
             }
-            
+        }
+        if !UserDefaults.standard.bool(forKey: "ads_removed") {
             NotificationCenter.default.addObserver(self, selector: #selector(handlePurchaseNotification(_:)), name: .iapServicePurchaseNotification, object: nil)
+        } else {
+            self.bannerView.isHidden = true
         }
     }
     
